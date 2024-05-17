@@ -46,6 +46,7 @@ const navigation = [
     { name: 'Home', href: '/', current: true },
     { name: 'Login', href: '/login', current: false },
     { name: 'About', href: '/about', current: false },
+    { name: 'Todo', href: '/todo', current: false },
 ]
 
 </script>

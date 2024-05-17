@@ -18,6 +18,8 @@
     "@tanstack/vue-query": "^5.36.1",
     "@tanstack/vue-table": "^8.17.3",
     "axios": "^1.6.8",
+    "firebase": "^10.12.0",
+    "uuid": "^9.0.1",
     "vue": "^3.4.21",
     "vue-router": "^4.0.13",
     "vue3-toastify": "^0.2.1",

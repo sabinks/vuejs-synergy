@@ -1,6 +1,6 @@
 <template>
     <div>
-        Client List
+
         <InputTable v-if="data" :data="data" :columns="columns" />
     </div>
 </template>
@@ -26,6 +26,12 @@ const columns = ref([
         id: "email",
         cell: (info) => info.getValue(),
         header: () => "Email",
+    }),
+    columnHelper.accessor((row) => row.id, {
+        id: "action",
+        cell: (info) => info.getValue(),
+        header: () => "Action",
+        enableSorting: false
     }),
 ])
 </script>

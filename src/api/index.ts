@@ -1,6 +1,7 @@
 import axios from "axios";
 import { toast } from 'vue3-toastify';
 import { store } from "@/store";
+import { router } from "@/router";
 const headers: any = {
     "Content-Type": "application/json",
 };
@@ -44,12 +45,15 @@ apiClient.interceptors.response.use(
         return response;
     },
     function (error) {
+        // console.log(error.response);
+
         // const { status, data } = error.response;
         // if (status == 401) {
-        //     localStorage.removeItem("token")
-        //     sessionStorage.removeItem("token")
-        //     location.replace("/app/login")
-        //     toast.error('Login Required!', { autoClose: 1500 });
+        // localStorage.removeItem("token")
+        // sessionStorage.removeItem("token")
+        // location.replace("/app/login")
+        // router.push({ path: '/login' })
+        // toast.error('Login Required!', { autoClose: 1500 });
         // }
         // if (status == 400 || status == 403 || status == 409) {
         //     toast.error(data.message, { autoClose: 1500 });
@@ -63,6 +67,6 @@ apiClient.interceptors.response.use(
         // if (status == 422) {
         //     toast.error("Please fill form !", { autoClose: 1500 });
         // }
-        return Promise.reject(error);
+        // return Promise.reject(error);
     }
 );
