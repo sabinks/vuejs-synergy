@@ -1,31 +1,31 @@
 <template>
     <div>
         Client List
-        <InputTable :table="table" />
+        <InputTable v-if="data" :data="data" :columns="columns" />
     </div>
 </template>
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import InputTable from '@/components/InputTable.vue';
-import { createColumnHelper, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
+import { createColumnHelper } from '@tanstack/vue-table'
 import { store } from '@/store';
 import type { Client } from '@/type/client';
 const columnHelper = createColumnHelper<Client>()
+let data = ref()
 onMounted(() => {
     store.dispatch('fetchClients')
+    data.value = store.state.clients.data
 })
-const columns = [
+const columns = ref([
     columnHelper.accessor((row) => row.name, {
         id: "name",
         cell: (info) => info.getValue(),
         header: () => "Name",
     }),
-]
-console.log(store.state.clients.data);
-
-const table = useVueTable({
-    columns,
-    data: store.state.clients.data,
-    getCoreRowModel: getCoreRowModel()
-})
+    columnHelper.accessor((row) => row.email, {
+        id: "email",
+        cell: (info) => info.getValue(),
+        header: () => "Email",
+    }),
+])
 </script>
