@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
-    apiKey: "AIzaSyC7MdXz-lbACLTYqHlyHt-TUChKkZGbCzM",
+    apiKey: import.meta.env.VUE_APP_API_KEY,
     authDomain: "synergydorm-vue.firebaseapp.com",
     projectId: "synergydorm-vue",
     storageBucket: "synergydorm-vue.appspot.com",
